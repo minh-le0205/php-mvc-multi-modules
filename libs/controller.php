@@ -10,11 +10,6 @@ class Controller
 
   protected $_arrParam;
 
-  public function __construct()
-  {
-    $this->_arrParam = array_merge($_GET, $_POST);
-    $this->_view = new View($this->_arrParam['module']);
-  }
 
   public function loadModel($moduleName, $modelName)
   {
@@ -25,5 +20,15 @@ class Controller
       require_once $path;
       $this->_model = new $modelName();
     }
+  }
+
+  public function setView($moduleName)
+  {
+    $this->_view = new View($moduleName);
+  }
+
+  public function setParam($arrParam)
+  {
+    $this->_arrParam = $arrParam;
   }
 }

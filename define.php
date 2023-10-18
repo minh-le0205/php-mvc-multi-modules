@@ -12,7 +12,7 @@ define('ROOT_URL', '');
 define('PUBLIC_URL', ROOT_URL . 'public' . DS);
 
 define('DEFAULT_MODULE', 'admin');
-define('DEFAULT_CONTROLLER', 'index');
+define('DEFAULT_CONTROLLER', 'user');
 define('DEFAULT_ACTION', 'index');
 
 
