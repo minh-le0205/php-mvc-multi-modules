@@ -3,9 +3,17 @@
 class Controller
 {
 
+  // View Object
+  protected $_view;
+  // Model Object
+  protected $_model;
+
+  protected $_arrParam;
+
   public function __construct()
   {
-    // $this->view = new View();
+    $this->_arrParam = array_merge($_GET, $_POST);
+    $this->_view = new View($this->_arrParam['module']);
   }
 
   public function loadModel($moduleName, $modelName)
@@ -15,7 +23,7 @@ class Controller
 
     if (file_exists($path)) {
       require_once $path;
-      $this->db = new $modelName();
+      $this->_model = new $modelName();
     }
   }
 }
